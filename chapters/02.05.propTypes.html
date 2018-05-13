@@ -14,9 +14,17 @@
       var Component = React.createClass({
         propTypes: {
           name: React.PropTypes.string.isRequired,
+          hoge: React.PropTypes.string,
+        },
+
+        getDefaultProps: function() {
+          //isRequiredされていないものについては、デフォルト値を定義できる
+          return {
+            hoge: "hoge"
+          };
         },
         render: function() {
-          return React.DOM.span(null, "私は" + this.props.name + "です")
+          return React.DOM.span(null, "私は" + this.props.name + "です" + this.props.hoge)
         }
       });
       ReactDOM.render(
